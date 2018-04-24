@@ -1,0 +1,29 @@
+<article class="bottom-space">
+	<div class="row center-xs">
+		<div class="col-xs-12 light-border col-md-7">
+			<h1 class="be-big blue"><%= @article.titulo %></h1>
+			<p class="text-right be-small">
+				<%= link_to "Atras", articles_path, class:"underline" %>
+				<span class="red">
+					<%= @article.contador %> Visita(s)
+				</span>
+				-
+				<% unless @article.user.nil?%>
+					Escrito por : <%= @article.user.email%>
+
+				<%end %>
+			</p>
+			<div class="text-justify">
+				<% @article.categories.each do |category| %>
+					<%= link_to category.name, category, style: "color:#{category.color}" %>
+				<%end%>
+			</div>
+			<div class="text-justify">
+				<%= @article.cuerpo %>
+			</div>
+			<div class="top-space">
+				<%= render "articles/coments" %>
+			</div>
+		</div>
+	</div>
+</article>

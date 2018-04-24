@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h1><%= @article.titulo %></h1>
+
+	<p><%= truncate(@article.cuerpo, length: 15 %></p>
+
+	<%= link_to "Leer más", article_url(@article) %>
+</body>
+</html>
